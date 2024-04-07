@@ -1,20 +1,20 @@
-<?php
-// Associative Array
-// Definisi nya sama seperti array numerik, kecuali
-// Key-nya string yang kita buat buat sendiri
-
-$mahasiswa = [
-    ["nama" => "Robin", 
-    "nim" => "19237766", 
-    "jurusan" => "Sistem Informasi", 
-    "email" => "robinhere@blabla.com"],
-
+<?php 
+    $books = [[
+        "id_buku" => "BK001",
+        "judul" => "Perahu Kertas",
+        "penulis" => "Dewi Lestari",
+        "tahun_terbit" => "2007",
+        "penerbit" => "Abadi Jaya",
+        "cover" => "img/pk.jpg"
+    ],
     [
-    "jurusan" => "Sistem Informasi",
-    "nama" => "Maman",
-    "email" => "me?maman@blabla.com",
-    "nim" => "19230456"] 
-]
+        "id_buku" => "BK002",
+        "judul" => "Laskar Pelangi",
+        "penulis"=> "Andrea Hirata",
+        "tahun_terbit" => "2004",
+        "penerbit" => "Abadi Jaya",
+        "cover" => "img/lp.jpg"
+    ]]
 ?>
 
 <!DOCTYPE html>
@@ -25,13 +25,17 @@ $mahasiswa = [
     <title>Associative Array</title>
 </head>
 <body>
-    <h1>daftar Mahasiswa</h1>
-    <?php foreach ( $mahasiswa as $mhs ) : ?>
+    <h1> Daftar Buku </h1>
+    <?php foreach ( $books as $book ) : ?>
         <ul>
-            <li>Nama : <?= $mhs["nama"] ?></li>
-            <li>Nim : <?= $mhs["nim"] ?></li>
-            <li>Prodi : <?= $mhs["jurusan"] ?></li>
-            <li>Email : <?= $mhs["email"] ?></li>
+            <li>Id buku : <?php echo $book["id_buku"] ?></li>
+            <li>Judul : <?php  echo $book["judul"] ?></li>
+            <li>Penulis : <?php  echo $book["penulis"] ?></li>
+            <li>Tahun Terbit : <?php echo $book["tahun_terbit"] ?></li>
+            <li>Penerbit : <?php echo $book["penerbit"] ?></li>
+            <li>
+                Cover : <img src="<?php echo $book["cover"] ?>" alt="Sampul Buku">
+            </li>
         </ul>
     <?php endforeach ?>
 </body>
