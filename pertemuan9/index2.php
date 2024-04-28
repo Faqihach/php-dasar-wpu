@@ -1,7 +1,24 @@
 <?php 
-require "functions.php";
-$books = query("SELECT * FROM perpustakaan")
+// mengkoneksi dengan database mySQL
+$db = mysqli_connect("localhost", "root", "", "phpwpu");
+
+//Ambil data (fetch) dari tabel // query data
+$result = mysqli_query($db, "SELECT * FROM perpustakaan");
+// var_dump($result);
+
+// 4 cara ambil (fetch) data dari tabel di mySQL:
+// mysqli_fetch_row() // mengembalikan array numerik
+// mysqli_fetch_assoc() // mengembalikan array assosiative
+// mysqli_fetch_array() // mengembalikan array keduanya
+// mysqli_fetch_object() // mengembalikan object
+
+// Menampilkan data secara berulang
+// while ($book = mysqli_fetch_assoc($result)) {
+//     var_dump($book);
+// }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +32,7 @@ $books = query("SELECT * FROM perpustakaan")
     <table border="1" cellpadding="5" cellspacing="0">
 
     <tr>
-        <th>No</th>
+        <th>id</th>
         <th>Aksi</th>
         <th>Cover</th>
         <th>Judul</th>
@@ -24,7 +41,7 @@ $books = query("SELECT * FROM perpustakaan")
         <th>Penerbit</th>
     </tr>
     <?php $no = 1; ?>
-    <?php foreach ($books as $book) : ?>
+    <?php while ($book = mysqli_fetch_assoc($result)) : ?>
         <tr>
             <td><?= $no ?></td>
             <td><a href="">update | </a>
@@ -38,7 +55,7 @@ $books = query("SELECT * FROM perpustakaan")
             <td><?= $book["penerbit"] ?></td>
         </tr>
         <?php $no++; ?>
-        <?php endforeach ?>
+        <?php endwhile ?>
 
     </table>
 </body>
