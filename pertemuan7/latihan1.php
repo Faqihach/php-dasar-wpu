@@ -19,20 +19,24 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GET</title>
 </head>
+
 <body>
     <h1>Daftar judul</h1>
     <ul>
         <?php foreach ($books as $book) : ?>
-            <li>
-                <a href="latihan2.php?cover=<?= $book["cover"]?>&id_buku=<?= $book["id_buku"]?>
+        <li>
+            <a
+                href="latihan2.php?cover=<?= $book["cover"]?>&id_buku=<?= $book["id_buku"]?>
                 &judul=<?= $book["judul"]?>&penulis=<?= $book["penulis"] ?>&tahun_terbit=<?= $book["tahun_terbit"] ?>&penerbit=<?= $book["penerbit"] ?>"><?= $book["judul"]; ?></a>
-            </li>
+        </li>
         <?php endforeach ?>
     </ul>
 </body>
+
 </html>

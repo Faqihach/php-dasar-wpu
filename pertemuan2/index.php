@@ -51,7 +51,8 @@
 
 // Identitas (===, !==) membandingkan tipe datanya juga
 // $hasil = 5 === "6";
-// var_dump($hasil)
+// var_dump($hasil);
+// echo "<br>";
 
 // logika (&&, ||, !)
 $angka = 5;
